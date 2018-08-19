@@ -6,6 +6,8 @@ const {Todo} = require('./models/todo')
 const {User} = require('./models/user')
 
 var app = express()
+const port = process.env.PORT || 3000
+
 app.use(bodyParser.json())
 
 app.post('/todos',(req,res)=>{
@@ -47,21 +49,9 @@ Todo.findById(id).then((todo) => {
 
 })
 
-app.listen(3000,()=>{
-    console.log('Started on port 3000')
+app.listen(port,()=>{
+    console.log(`Started on port ${port}`)
 })
 
-/*
-
-var user = new User({
-    email:'Miteshdv@yahoo.co.in'
-})
-
-
-user.save().then((doc)=>{
-    console.log('Saved successfully',doc)
-   },(e)=>{
-       console.log('Unable to save',e)
-   })*/
 
 
